@@ -165,6 +165,7 @@ Check dockerhub:
 
 Copy `<sonarqube-server-ip>:8080` to access vue app
 
+Copy mail :
 
 ### 5. Destroy
 ```
