@@ -84,13 +84,13 @@ Navigate to Dockerhub > `Finger print in top right corner` >  `Account Settings`
 Go back to github `Settings` > `Secrets and variables` > `Actions` > `New repository secret` > Enter key and name
 
 ```
-DOCKER_USERNAME <your-dockerhub-name>
-DOCKER_PASSWORD <your-docker-token>
+DOCKERHUB_USERNAME <your-dockerhub-name>
+DOCKERHUB_TOKEN <your-dockerhub-token>
 ```
 You can use [github-cli](https://cli.github.com/)
 ```
-gh secret set DOCKER_USERNAME <your-dockerhub-name>
-gh secret set DOCKER_PASSWORD <your-docker-token>
+gh secret set DOCKERHUB_USERNAME <your-dockerhub-name>
+gh secret set DOCKERHUB_TOKEN <your-dockerhub-token>
 ```
 ### 4. Install Runner
 Navigate to github > `Settings` > `Action` > `Runner` > `New self-host runner`
@@ -106,7 +106,7 @@ name: Build
 on:
   push:
     branches:
-      - main
+      - master
 
 
 jobs:
@@ -140,7 +140,7 @@ jobs:
         env:
           DOCKER_CLI_ACI: 1
       - name: Image scan
-        run: trivy image haquocdat/action:latest > trivyimage.txt
+        run: trivy image haquocdat543/action:latest > trivyimage.txt
   deploy:    
       needs: build
       runs-on: self-hosted  
